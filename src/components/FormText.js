@@ -4,22 +4,26 @@ export default function FormText(props) {
   const convertToUpText = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Upper Case", "primary");
   };
 
   const convertToLowText = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lower Case", "primary");
   };
 
   const clearText = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("All Text Cleared", "danger");
   };
 
   const handleCopy = () => {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("All Text Copied", "primary");
   };
 
   const handleOnGoing = (event) => {
@@ -30,6 +34,7 @@ export default function FormText(props) {
   const handleRemoveExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("All Extra Spaces Removed", "primary");
   };
 
   const [text, setText] = useState("");
@@ -42,6 +47,8 @@ export default function FormText(props) {
           <textarea
             name=""
             id="myBox"
+            // className={`bg-${props.mode === "light" ? "dark" : "light"}
+            // text-${props.mode === "dark" ? "light" : "dark"}`}
             cols="150"
             rows="8"
             value={text}
