@@ -50,7 +50,7 @@ function App() {
           <Route exact path="/">
             <FormText
               showAlert={showAlert}
-              heading="Try TextUtils - word counter, character counter, remove extra spaces"
+              heading="Try TextUtils - word counter, copy text, character counter, remove extra spaces"
             />
           </Route>
           <Route exact path="/about">
