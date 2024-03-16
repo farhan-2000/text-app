@@ -57,35 +57,35 @@ export default function FormText(props) {
         </div>
         <button
           type="submit"
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={convertToUpText}
         >
           Upper Case
         </button>
         <button
           type="submit"
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={convertToLowText}
         >
           Lowwer Case
         </button>
         <button
           type="submit"
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={clearText}
         >
           Clear Text
         </button>
         <button
           type="submit"
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={handleCopy}
         >
           Copy Text
         </button>
         <button
           type="submit"
-          className="btn btn-primary mx-1"
+          className="btn btn-primary mx-1 my-1"
           onClick={handleRemoveExtraSpaces}
         >
           Remove Extra Spaces
@@ -94,7 +94,12 @@ export default function FormText(props) {
       <div className="container my-5">
         <h2>Your Text Summary</h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} Minutes</p>
         <h2>Preview</h2>

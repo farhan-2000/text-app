@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import { useState } from "react";
 import FormText from "./components/FormText";
 import Alert from "./components/Alert";
-// import AboutUs from "./components/AboutUs";
+import About from "./components/About";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -16,7 +17,7 @@ function App() {
     });
     setTimeout(() => {
       setAlert(null);
-    }, 4000);
+    }, 3000);
   };
 
   const toogleMode = () => {
@@ -37,15 +38,26 @@ function App() {
 
   return (
     <>
-      <Navbar
-        title="Text Uttils"
-        about="About Us"
-        mode={mode}
-        toogleMode={toogleMode}
-      />
-      <Alert alert={alert} />
-      <FormText showAlert={showAlert} heading="Enter the text here" />
-      {/* <AboutUs /> */}
+      <Router>
+        <Navbar
+          title="Text Uttils"
+          about="About"
+          mode={mode}
+          toogleMode={toogleMode}
+        />
+        <Alert alert={alert} />
+        <Switch>
+          <Route exact path="/">
+            <FormText
+              showAlert={showAlert}
+              heading="Try TextUtils - word counter, character counter, remove extra spaces"
+            />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
