@@ -3,7 +3,10 @@ import React from "react";
 function Alert(props) {
   return (
     props.alert && (
-      <div style={{ height: "80px", color: "red" }}>
+      <div
+        className="position-absolute"
+        style={{ height: "80px", color: "red" }}
+      >
         <div
           className={`alert alert-${props.alert.type} alert-dismissible fade show`}
           role="alert"
