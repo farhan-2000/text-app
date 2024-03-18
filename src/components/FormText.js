@@ -59,6 +59,7 @@ export default function FormText(props) {
           type="submit"
           className="btn btn-primary mx-1 my-1"
           onClick={convertToUpText}
+          disabled={text.length === 0}
         >
           Upper Case
         </button>
@@ -66,6 +67,7 @@ export default function FormText(props) {
           type="submit"
           className="btn btn-primary mx-1 my-1"
           onClick={convertToLowText}
+          disabled={text.length === 0}
         >
           Lowwer Case
         </button>
@@ -73,6 +75,7 @@ export default function FormText(props) {
           type="submit"
           className="btn btn-primary mx-1 my-1"
           onClick={clearText}
+          disabled={text.length === 0}
         >
           Clear Text
         </button>
@@ -80,6 +83,7 @@ export default function FormText(props) {
           type="submit"
           className="btn btn-primary mx-1 my-1"
           onClick={handleCopy}
+          disabled={text.length === 0}
         >
           Copy Text
         </button>
@@ -87,6 +91,7 @@ export default function FormText(props) {
           type="submit"
           className="btn btn-primary mx-1 my-1"
           onClick={handleRemoveExtraSpaces}
+          disabled={text.length === 0}
         >
           Remove Extra Spaces
         </button>
@@ -101,7 +106,13 @@ export default function FormText(props) {
           }{" "}
           words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes</p>
+        <p>
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes
+        </p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>

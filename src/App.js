@@ -26,13 +26,13 @@ function App() {
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "Text Uttils - Dark Mode";
+      // document.title = "Text Uttils - Dark Mode";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
       showAlert("Light mode has been enabled", "success");
-      document.title = "Text Uttils - Light Mode";
+      // document.title = "Text Uttils - Light Mode";
     }
   };
 
@@ -47,14 +47,14 @@ function App() {
         />
         <Alert alert={alert} />
         <Switch>
+          <Route exact path="/about">
+            <About mode={mode} />
+          </Route>
           <Route exact path="/">
             <FormText
               showAlert={showAlert}
               heading="Try TextUtils - word counter, copy text, character counter, remove extra spaces"
             />
-          </Route>
-          <Route exact path="/about">
-            <About />
           </Route>
         </Switch>
       </Router>
