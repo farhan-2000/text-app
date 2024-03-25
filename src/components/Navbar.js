@@ -36,8 +36,50 @@ export default function Navbar(props) {
                 </Link>
               </li>
             </ul>
+            <div className="d-flex">
+              <div
+                className="bg-primary mx-2 rounded"
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toogleMode("primary");
+                }}
+              ></div>
+              <div
+                className="bg-danger mx-2 rounded"
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toogleMode("danger");
+                }}
+              ></div>
+              <div
+                className="bg-success mx-2 rounded"
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toogleMode("success");
+                }}
+              ></div>
+              <div
+                className="bg-warning mx-2 rounded"
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toogleMode("warning");
+                }}
+              ></div>
+              <div
+                className="bg-dark mx-2 rounded"
+                style={{
+                  height: "20px",
+                  width: "20px",
+                  cursor: "pointer",
+                  border: "1px solid white",
+                }}
+                onClick={() => {
+                  props.toogleMode("dark");
+                }}
+              ></div>
+            </div>
             <form className="d-flex" role="search">
-              <input
+              {/* <input
                 className="form-control me-2"
                 type="search"
                 placeholder="Search"
@@ -45,7 +87,7 @@ export default function Navbar(props) {
               />
               <button className="btn btn-outline-primary" type="submit">
                 Search
-              </button>
+              </button> */}
               <div
                 className={`form-check form-switch mx-3 text-${
                   props.mode === "light" ? "dark" : "light"
@@ -53,7 +95,6 @@ export default function Navbar(props) {
               >
                 <input
                   className="form-check-input py-2"
-                  onClick={props.toogleMode}
                   type="checkbox"
                   role="switch"
                   id="flexSwitchCheckDefault"

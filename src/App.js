@@ -19,21 +19,31 @@ function App() {
       setAlert(null);
     }, 3000);
   };
+  const removeBodyClasses = () => {
+    document.body.classList.remove("bg-light");
+    document.body.classList.remove("bg-primary");
+    document.body.classList.remove("bg-success");
+    document.body.classList.remove("bg-danger");
+    document.body.classList.remove("bg-warning");
+    document.body.classList.remove("bg-dark");
+  };
 
-  const toogleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "black";
-      document.body.style.color = "white";
-      showAlert("Dark mode has been enabled", "success");
-      // document.title = "Text Uttils - Dark Mode";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      document.body.style.color = "black";
-      showAlert("Light mode has been enabled", "success");
-      // document.title = "Text Uttils - Light Mode";
-    }
+  const toogleMode = (cls) => {
+    console.log(cls);
+    removeBodyClasses();
+    document.body.classList.add("bg-" + cls);
+    showAlert(cls + " mode has been enabled", cls);
+    // if (mode === "light") {
+    //   setMode("dark");
+    //   document.body.style.backgroundColor = "black";
+    //   document.body.style.color = "white";
+    //   showAlert("Dark mode has been enabled", "success");
+    // } else {
+    //   setMode("light");
+    //   document.body.style.backgroundColor = "white";
+    //   document.body.style.color = "black";
+    //   showAlert("Light mode has been enabled", "success");
+    // }
   };
 
   return (
